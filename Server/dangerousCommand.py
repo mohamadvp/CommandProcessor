@@ -1,0 +1,35 @@
+dangerous_commands = {
+    "windows": [
+        "del",          
+        "rmdir",        
+        "format",       
+        "cipher",       
+        "shutdown",     
+        "logoff",       
+        "powercfg",     
+        "reg",          
+        "taskkill",     
+        "diskpart",     
+        "bcdedit",      
+        "sdelete",      
+        "takeown",      
+        "icacls",       
+    ],
+    "linux": [
+        "rm",           
+        "dd",           
+        "shutdown",     
+        "reboot",       
+        "poweroff",     
+        "mkfs",         
+        "chmod",        
+        "chown",        
+        "killall",      
+        "pkill",        
+        "ln",           
+        "wget",         
+        "curl",         
+        "mv",           
+        ":(){:|:&};:"   
+    ]
+}
