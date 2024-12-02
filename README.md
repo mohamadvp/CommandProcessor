@@ -6,6 +6,7 @@ This project implements a **client-server application** using **ZeroMQ** for com
 
 1. **OS Commands**: Executes system commands such as `ping` or listing directories.
 2. **Math Commands**: Evaluates mathematical expressions using Python’s `math` module.
+3. **File Commands**: Executes file operation such as `read` or `list` of directories
 
 The project supports multiple clients concurrently.
 
@@ -15,6 +16,7 @@ The project supports multiple clients concurrently.
 - Identify the type of command
 - Execute **OS commands** and return results.
 - Evaluate **mathematical expressions** safely.
+- Execute **file operation** and return results.
 - Asks for user confirmation if input dangerous OS commands in windows and linux
 - Supports **multiple clients** using **zmq.ROUTER** and **zmq.DEALER**
 - Implements **error handling** for invalid inputs from Client.
@@ -30,6 +32,7 @@ The project is organized as follows:
 .
 ├── server/                 
 │   ├── dangerousCommand.py           
+│   ├── fileCommand.py      
 │   ├── logger.py
 │   ├── mathCommand.py        
 │   ├── osCommand.py      
@@ -117,6 +120,25 @@ Commands such as rm -rf or del are dangerous. The server requires confirmation b
   "message": "Command 'rm' is potentially dangerous. Confirm to proceed"
 }
 ```
+
+### File Command
+### input:
+```bash 
+{
+  "command_type": "file",
+  "path": /home/file.txt,
+  "operation": delete,
+}          
+```
+
+### Output:
+```bash 
+{
+  "status": "success",
+  "output": "File /home/file.txt delete successfully"
+}          
+```
+
 If the user confirms, the command executes. Otherwise, it is canceled.
 
 #  Design and Architecture
