@@ -2,6 +2,7 @@ import json
 import zmq
 from osCommand import os_command
 from mathCommand import math_command
+from fileCommand import file_command
 from logger import log_error, log_info, log_success
 
 
@@ -11,6 +12,8 @@ def process_command(command):
             return os_command(command)
         elif command["command_type"] == "compute":
             return math_command(command)
+        elif command["command_type"] == "file":
+            return file_command(command)
         else:
             return {"status": "error", "output": f"Invalid command type"}
     except Exception as e:
